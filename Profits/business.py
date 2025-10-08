@@ -7,15 +7,19 @@ import math
 x_train = []
 y_train = []
 
-with open("train.csv", 'r') as file:
+with open("LA_Rent_Price.csv", 'r') as file:
     csvreader = csv.reader(file)
     next(csvreader)
 
     for row in csvreader:
-        x_train.append(row[4])
-        y_train.append(row[80])
+        x_train.append(row[2])
+        y_train.append(row[1])
         
+#I hope this sorts
+#x_train.sort()
 
+x_train = np.array(x_train)
+y_train = np.array(y_train)
 
 
 print("Type of x_train:",type(x_train))
@@ -35,8 +39,16 @@ plt.show
 #saves to a graph
 plt.savefig('map.png')
 #displays a scratter graph
-plt.scatter(x_train, y_train, marker='X', c='r')
-plt.title("Profits Vs. Population by City")
-plt.ylabel('Profits')
-plt.xlabel('Population')
+plt.scatter(x_train, y_train, marker='x', c='r')
+plt.title("Rent Vs Square ft")
+plt.ylabel('Price')
+plt.xlabel('Square ft')
 plt.savefig('scatter.png')
+
+
+#meow_array = [3, 8, 9, 2, 7]
+#woof_array = [4, 6, 3, 7, 8]
+#plt.plot(meow_array, woof_array)
+#plt.show
+#plt.scatter(meow_array, woof_array, marker='x',)
+#plt.savefig('meow.png')
